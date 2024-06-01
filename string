@@ -1,0 +1,174 @@
+#python string
+
+#1. penggunaan tanda petik dua dan satu sama saja
+petik1='hello world!'
+petik2="hello world!"
+if petik1==petik2:
+    print("kedua string adalah sama!:")
+    print("petik 1 = ",petik1)
+    print("petik 2 = ",petik2)
+else:
+    print("kedua string beda!")
+#=============================================================================================
+
+#2. multiline string
+#hasil yg diketik sesuai dengan posisi yang tertulis di code
+#menggunakan three double quotes (""")
+dobel3="""hello world!,
+i will destroy you now!"""
+print(dobel3)
+print(type(dobel3))
+
+#alternatif menggunakan three single quotes (''') hasilnya sama
+dobel2='''hello world!
+          can we see?'''
+print(dobel2)
+print(type(dobel2))
+#=============================================================================================
+
+#3. mengakses huruf di variabel string
+#dimulai dari posisi ke 0 hingga +1
+akses1="hello world!"
+print(akses1[1])     #mencetak huruf E index ke 1
+print(akses1[2:5])   #mencetak huruf ello dari index ke 2 - 5
+print(akses1[-1])    #mencetak simbol ! dari urutan belakang
+print(akses1[-5:-1]) #mencetak huruf olrd dari belakang
+#=============================================================================================
+
+#4. string loop
+#memanggil setiap huruf di dalam string menurun
+for h in "hello world":     #pastikan huruf yang dipanggil ada distring 'h'dapat diubah
+    print(h)
+for ab in "your curses!":     #contoh lain
+    print(ab)
+#=============================================================================================
+
+#5. string length
+#menghitung jumlah/panjang huruf dari suatu string 
+#semua spasi dan simbol juga dihitung sebagai huruf
+#menggunakan perintah len()
+panjang="hello world!"
+print(len(panjang))  #hasilnya 12 huruf
+
+#len bisa digunakan untuk menghitung dua atau lebih gabungan string
+pendek="hey--man"  #8 huruf
+print(len(panjang + pendek))    #menghitung jumlah dari dua variabel
+#=============================================================================================
+
+#6. string check
+#mengecek suatu huruf di dalam string dengan "in", hasilnya bool (true/false)
+cek1="hello world!"
+cek2="hel"
+cek3="or"
+print(cek2 in cek1)  #true karena cek2 ada di cek1
+print(cek3 in cek1)  #true karena cek3 ada di cek1
+print(cek1 in cek2)  #false karena keseluruhan cek1 tidak ada dicek2
+
+#check if not
+#mengecek suatu huruf apakah TIDAK ADA di dalam string dengan "not in"
+#jika tidak ada = true, jika ada = false
+print(cek2 not in cek3)     #true karena cek2 tidak ada di cek2
+print(cek1 not in cek3)     #true karena cek1 tidak ada di cek3
+print(cek2 not in cek1)     #false karena cek2 ada di cek1
+#=============================================================================================
+
+#7. slicing string
+#mengembalikan/memotong sejumlah karakter di string berdasarkan index
+slice1="hello world !"
+#indexx=012345678910111
+#       h e l lo world!
+#-index=121110987654210
+print(slice1[3:9])   #hasilnya "lo wor" dimulai dari huruf ke-3 yaitu l
+print(slice1[2:4])   #hasilnya "llo" dimulai dari huruf ke-2 yaitu l
+print(slice1[-4:-2]) #dengan negative index (kiri < kanan) hasilnya "rl"
+
+slice2="destoy world!"
+#jika tidak diberi angka SESUDAH ":" disebut dengan [slice from start]
+print(slice2[2:])   #memanggil semua huruf dari awal index ke-2 [stoy world!]
+print(slice2[-4:])  #memanggil semua huruf dari awal tapi dari (index belakang) ke-4 [rld!]
+
+#jika tidak diberi angka SEBELUM ":" disebut dengan [slice to end]
+print(slice2[:4])   #memanggil semua huruf hingga batas akhir index ke-4 [dest]
+print(slice2[:-2])  #memanggil semua huruf hingga akhir (index belakang) ke-2 [destroy worl]
+#=============================================================================================
+
+
+#8. modify strings
+#perintah upper() untuk membuat semua huruf menjadi KAPITAL
+besar="Hello World!"
+print(besar.upper())   #huruf yang sudah kapital masih tetap kapital
+
+#perintah lower() untuk membuat semua huruf menjadi KECIL
+kecil="HELLO World!"
+print(kecil.lower())   #huruf yang sudah kecil akan tetap kecil
+
+#perintah strip() menghapus spasi diawal dan akhir teks
+spasi=" hello world! "  #disini terdapat spasi awal dan akhir
+print(spasi.strip())
+print("dari",spasi,"menjadi",spasi.strip())    #hasilnya menjadi hello world biasa
+
+#perintah replace() menggantikan huruf lama dengan yang baru
+#rumus = .replace("huruf yang akan diganti (lama)","huruf pengganti (baru)")
+ganti="hello world!"
+print(ganti.replace("h","t"))   #mengubah semua huruf h menjadi t --> tello world!
+print(ganti.replace("l","r"))   #mengubah semua huruf l menjadi r --> herro worrd!
+print(ganti.replace("E","Z"))   #tidak mengubah apapun karena CASE SENSITIVE
+print(ganti.replace("e","Al"))  #dapat mengubah lebih dari 1 huruf baru --> hAllo world!
+print(ganti.replace(" "," lost ")) #mengubah spasi, berlaku juga untuk semua spasi di string
+
+#perintah split() memisahkan kata dari setiap separator yang dipilih (string) menjadi substring
+pisah="hello world!"
+print(pisah.split(" "))     #memisahkan string dari spasi --> ['hello', 'world!']
+pisah2="hello, sad, world!"
+print(pisah2.split(","))    #memisahkan string dari koma --> ['hello', 'sad', ' world!']
+pisah3="hello world!"
+print(pisah3.split("l"))    #memisahkan string dari huruf l --> ['he', '', 'o wor', 'd!']
+pisah4=pisah3.split("l")
+print(pisah4[1:3])          #string yang telah dipisah dapat dipanggil dengan index
+
+#menggabungkan dua string atau lebih
+gab1="Hello"
+gab2=" " #spasi
+gab3="World"
+gab4="!" #tanda seru
+gab = gab1 + gab2 + gab3 + gab4
+print(gab)              #hasilnya "Hello World!"
+print(gab + " " + gab3) #hasilnya "Hello World! World"
+#=============================================================================================
+
+#9. format string
+#alternatif menggabungkan string dan int menggunakan "{}"
+umur=17
+umur2="saya berumur {}"  #tanda kurung digunakan sebagai tempat menambahkan variabel lain
+print(umur2.format(umur))  #var umur masuk ke dalam umur2 --> saya berumur 17
+print("kamu berusia {}".format(umur)) #menggabungkan string dengan format
+print("kamu berusia {}".format(18))
+print("kamu berusia".format(umur))  #tidak memunculkan umur karena tidak terdapat format {}
+
+print("saya berusia {} dan kamu berusia {}".format(umur,18)) #double {} tanpa index urut dari kiri
+umur3="Saya berusia {1} dan kamu berusia {0}." #format diberikan index
+print(umur3.format(umur,18)) #urutan pengisian format disesuaikan jika terdapat index
+
+umur4="empat belas tahun"
+print("Adik saya berusia {}".format(umur4)) #hasil "Adik saya berusia empat belas tahun"
+#=============================================================================================
+
+#10. escape character
+#jika ingin menambahkan karakter ilegal di dalam string gunakan "\"
+#contoh jika ingin pakai petik dua
+esc1="hello "lost" world"  #error karena tidak boleh ada petik 2 di dalam petik2
+esc1a="hello \"lost\" world" #bisa dengan menggunakan alternatif \
+print(esc1a)
+
+#berikut beberapa contoh escape character dalam string
+print("hello \'world\' !")      #petik 1 hasilnya "hello 'world' !"
+print("hello \\ world !")       #garis miring hasilnya  "hello \ world !"
+print("hello world ! \n")       #ganti baris hasilnya  (enter) "hello world!" enter
+print("hello \r world !")       #ganti baris hasilnya  "hello" enter  "world !"
+print("hello \t world !")       #tab baris hasilnya "hello   world!"
+print("hello \bworld !")        #menghapus satu huruf dibelakang
+
+
+#BONUS
+#rumus yang seirng digunakan pada string
+#tidak mengubah string asli
